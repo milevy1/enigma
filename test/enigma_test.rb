@@ -12,7 +12,7 @@ class EnigmaTest < Minitest::Test
     assert_instance_of Enigma, @enigma
   end
 
-  def test_it_can_encrypt
+  def test_it_can_encrypt_with_a_key_and_date
     skip
     expected = { encryption: "keder ohulw",
                  key: "02715",
