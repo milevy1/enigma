@@ -5,18 +5,11 @@ class Enigma
     message_chars = message.downcase.chars
     encrypted_message = []
 
-    char_counter = 1
+    counter = 1
     message_chars.each do |character|
-      shift = find_shift(char_counter, shifts)
+      shift = find_shift(counter, shifts)
       encrypted_message << encrypt_character(character, shift)
-
-      # Increment char counter
-      if char_counter == 4
-        char_counter = 1
-      else
-        char_counter += 1
-      end
-
+      counter = increment_counter(counter)
     end
 
     # Convert the array into a string
