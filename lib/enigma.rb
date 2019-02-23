@@ -1,6 +1,6 @@
 class Enigma
 
-  def encrypt(message, key, date)
+  def encrypt(message, key, date = todays_date)
     shifts = shift_converter(key_converter(key), date_converter(date))
     encrypted_message = []
     counter = 1
@@ -76,7 +76,7 @@ class Enigma
   end
 
   def todays_date
-    Date.today.strftime("%d%m%y")    
+    Date.today.strftime("%d%m%y")
   end
 
 end
