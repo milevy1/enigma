@@ -71,4 +71,8 @@ class Enigma
     end
   end
 
+  def random_key
+    ("0000" + rand(100_000).to_s)[-5..-1]
+  end
+
 end
