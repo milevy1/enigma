@@ -15,11 +15,18 @@ class Enigma
     date = date.to_i
     date_squared = date * date
     last_four = date_squared.to_s[-4..-1]
-    
+
     { a_offset: last_four[0].to_i,
       b_offset: last_four[1].to_i,
       c_offset: last_four[2].to_i,
       d_offset: last_four[3].to_i }
+  end
+
+  def shift_converter(keys, offsets)
+    { a_shift: keys[:a_key] + offsets[:a_offset],
+      b_shift: keys[:b_key] + offsets[:b_offset],
+      c_shift: keys[:c_key] + offsets[:c_offset],
+      d_shift: keys[:d_key] + offsets[:d_offset] }
   end
 
 end
