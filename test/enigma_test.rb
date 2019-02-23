@@ -105,4 +105,11 @@ class EnigmaTest < Minitest::Test
     assert_equal 5, key.length
   end
 
+  def test_random_key_generates_integer_betweeen_0_to_99999
+    key_as_integer = @enigma.random_key.to_i
+    range = (0..99_999)
+
+    assert_equal true, range.include?(key_as_integer)
+  end
+
 end
