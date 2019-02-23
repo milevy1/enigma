@@ -117,4 +117,19 @@ class EnigmaTest < Minitest::Test
     assert_equal 6, @enigma.todays_date.length
   end
 
+  def test_encrypt_a_message_with_only_a_key_but_use_todays_date
+    encryption = @enigma.encrypt("hello world", "02715")
+    expected = Date.today.strftime("%d%m%y")
+
+    assert_equal expected, encryption[:date]
+  end
+
+  def test_encrypt_a_message_with_random_key_and_todays_date
+    encryption = @enigma.encrypt("hello world")
+    today = Date.today.strftime("%d%m%y")
+
+    assert_equal today, encryption[:date]
+    assert_equal 5, encryption[:key].length
+  end
+
 end
