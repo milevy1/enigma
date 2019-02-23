@@ -17,8 +17,7 @@ class EnigmaTest < Minitest::Test
     expected = { a_key: 02,
                  b_key: 27,
                  c_key: 71,
-                 d_key: 15
-               }
+                 d_key: 15 }
 
     assert_equal expected, @enigma.key_converter(key)
   end
