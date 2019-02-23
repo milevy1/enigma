@@ -1,7 +1,51 @@
 class Enigma
 
   def encrypt(message, key, date)
+    shifts = shift_converter(key_converter(key), date_converter(date))
+    alphabet = ("a".."z").to_a << " "
+    message_chars = message.downcase.chars
+    encrypted_message = []
 
+    # Iterate over each char in the messsage
+    char_counter = 1
+    message_chars.each do |character|
+      # Check if it is a, b, c, or d shift
+      case char_counter
+      when 1
+        shift = shifts[:a_shift]
+      when 2
+        shift = shifts[:b_shift]
+      when 3
+        shift = shifts[:c_shift]
+      when 4
+        shift = shifts[:d_shift]
+      end
+
+      # Find index of char in the alphabet
+      index = alphabet.index(character)
+      # Rotate the alphabet to that char
+      indexed_alphabet = alphabet.rotate(index)
+      # then rotate by the shift
+      rotated_alphabet = indexed_alphabet.rotate(shift)
+      # push the new char into the encrypted_message
+      encrypted_message << rotated_alphabet.first
+
+      # Increment char counter
+      if char_counter == 4
+        char_counter = 1
+      else
+        char_counter += 1
+      end
+
+    end
+
+    # Convert the array into a string
+    encrypted_message = encrypted_message.join
+
+    # Return the hash with string, key, and date
+    { encryption: encrypted_message,
+      key: key,
+      date: date }
   end
 
   def key_converter(key)
