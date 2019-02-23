@@ -12,6 +12,18 @@ class Enigma
     { encryption: encrypted_message.join, key: key, date: date }
   end
 
+  def decrypt(message, key, date = todays_date)
+    shifts = shift_converter(key_converter(key), date_converter(date))
+    decrypted_message = []
+    counter = 1
+    message.downcase.chars.each do |character|
+      shift = find_shift(counter, shifts)
+      decrypted_message << decrypt_character(character, shift)
+      counter = increment_counter(counter)
+    end
+    { decryption: decrypted_message.join, key: key, date: date }
+  end
+
   def key_converter(key)
     { a_key: key[0..1].to_i,
       b_key: key[1..2].to_i,
@@ -59,6 +71,19 @@ class Enigma
     else
       indexed_alphabet = alphabet.rotate(index)
       shifted_alphabet = indexed_alphabet.rotate(shift)
+      return shifted_alphabet.first
+    end
+  end
+
+  def decrypt_character(character, shift)
+    alphabet = ("a".."z").to_a << " "
+    index = alphabet.index(character)
+
+    if index.nil?
+      return character
+    else
+      indexed_alphabet = alphabet.rotate(index)
+      shifted_alphabet = indexed_alphabet.rotate(-shift)
       return shifted_alphabet.first
     end
   end

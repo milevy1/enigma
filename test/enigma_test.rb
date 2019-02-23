@@ -132,4 +132,28 @@ class EnigmaTest < Minitest::Test
     assert_equal 5, encryption[:key].length
   end
 
+  def test_decrypt_a_message_with_a_key_and_date
+    expected = { decryption: "hello world",
+                 key: "02715",
+                 date: "040895" }
+
+    assert_equal expected, @enigma.decrypt("keder ohulw", "02715", "040895")
+  end
+
+  def test_decrypt_a_message_with_only_a_key_and_use_todays_date
+    encryption = @enigma.encrypt("hello world", "02715")
+    encrypted_message = encryption[:encryption]
+
+    decryption = @enigma.decrypt(encrypted_message, "02715")
+
+    assert_equal "hello world", decryption[:decryption]
+  end
+
+  def test_decrypt_single_character_helper_method
+    character = "k"
+    shift = 3
+
+    assert_equal "h", @enigma.decrypt_character(character, shift)
+  end
+
 end
