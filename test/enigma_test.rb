@@ -99,4 +99,10 @@ class EnigmaTest < Minitest::Test
     assert_equal 1, @enigma.increment_counter(4)
   end
 
+  def test_random_key_generates_5_integer_key
+    key = @enigma.random_key
+
+    assert_equal 5, key.length
+  end
+
 end
