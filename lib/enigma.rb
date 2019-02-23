@@ -79,4 +79,12 @@ class Enigma
     end
   end
 
+  def increment_counter(counter)
+    if counter == 4
+      counter = 1
+    else
+      counter += 1
+    end
+  end
+
 end
