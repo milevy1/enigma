@@ -2,23 +2,14 @@ class Enigma
 
   def encrypt(message, key, date)
     shifts = shift_converter(key_converter(key), date_converter(date))
-    message_chars = message.downcase.chars
     encrypted_message = []
-
     counter = 1
-    message_chars.each do |character|
+    message.downcase.chars.each do |character|
       shift = find_shift(counter, shifts)
       encrypted_message << encrypt_character(character, shift)
       counter = increment_counter(counter)
     end
-
-    # Convert the array into a string
-    encrypted_message = encrypted_message.join
-
-    # Return the hash with string, key, and date
-    { encryption: encrypted_message,
-      key: key,
-      date: date }
+    { encryption: encrypted_message.join, key: key, date: date }
   end
 
   def key_converter(key)
