@@ -12,14 +12,8 @@ class Enigma
       # Check if it is a, b, c, or d shift
       shift = find_shift(char_counter, shifts)
 
-      # Find index of char in the alphabet
-      index = alphabet.index(character)
-      # Rotate the alphabet to that char
-      indexed_alphabet = alphabet.rotate(index)
-      # then rotate by the shift
-      rotated_alphabet = indexed_alphabet.rotate(shift)
       # push the new char into the encrypted_message
-      encrypted_message << rotated_alphabet.first
+      encrypted_message << encrypt_character(character, shift)
 
       # Increment char counter
       if char_counter == 4
