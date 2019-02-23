@@ -73,4 +73,17 @@ class Enigma
       d_shift: keys[:d_key] + offsets[:d_offset] }
   end
 
+  def find_shift(char_counter, shifts)
+    case char_counter
+    when 1
+      return shifts[:a_shift]
+    when 2
+      return shifts[:b_shift]
+    when 3
+      return shifts[:c_shift]
+    when 4
+      return shifts[:d_shift]
+    end
+  end
+
 end
