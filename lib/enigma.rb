@@ -77,4 +77,17 @@ class Enigma
     end
   end
 
+  def encrypt_character(character, shift)
+    alphabet = ("a".."z").to_a << " "
+    index = alphabet.index(character)
+
+    if index.nil?
+      return character
+    else
+      indexed_alphabet = alphabet.rotate(index)
+      shifted_alphabet = indexed_alphabet.rotate(shift)
+      return shifted_alphabet.first
+    end
+  end
+
 end
