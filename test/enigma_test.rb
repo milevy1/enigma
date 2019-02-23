@@ -69,4 +69,11 @@ class EnigmaTest < Minitest::Test
     assert_equal 3, @enigma.find_shift(char_counter, shifts)
   end
 
+  def test_encrypt_single_character_helper_method
+    character = "h"
+    shift = 3
+
+    assert_equal "k", @enigma.encrypt_character(character, shift)    
+  end
+
 end
