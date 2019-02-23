@@ -75,4 +75,8 @@ class Enigma
     ("0000" + rand(100_000).to_s)[-5..-1]
   end
 
+  def todays_date
+    Date.today.strftime("%d%m%y")    
+  end
+
 end
