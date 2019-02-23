@@ -10,16 +10,7 @@ class Enigma
     char_counter = 1
     message_chars.each do |character|
       # Check if it is a, b, c, or d shift
-      case char_counter
-      when 1
-        shift = shifts[:a_shift]
-      when 2
-        shift = shifts[:b_shift]
-      when 3
-        shift = shifts[:c_shift]
-      when 4
-        shift = shifts[:d_shift]
-      end
+      shift = find_shift(char_counter, shifts)
 
       # Find index of char in the alphabet
       index = alphabet.index(character)
