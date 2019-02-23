@@ -22,6 +22,16 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.key_converter(key)
   end
 
+  def test_date_converter_converts_date_to_indivudual_offsets
+    date = "040895"
+    expected = { a_offset: 1,
+                 b_offset: 0,
+                 c_offset: 2,
+                 d_offset: 5 }
+
+    assert_equal expected, @enigma.date_converter(date)
+  end
+
   def test_it_can_encrypt_with_a_key_and_date
     skip
     expected = { encryption: "keder ohulw",
