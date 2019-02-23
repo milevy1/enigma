@@ -52,12 +52,51 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_encrypt_with_a_key_and_date
-    skip
     expected = { encryption: "keder ohulw",
                  key: "02715",
                  date: "040895" }
 
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
+  end
+
+  def test_encrypt_ignores_characters_not_in_alphabet
+    expected = { encryption: "keder ohulw!",
+                 key: "02715",
+                 date: "040895" }
+
+    assert_equal expected, @enigma.encrypt("hello world!", "02715", "040895")
+  end
+
+  def test_encrypt_treats_uppercase_letters_as_lower_case
+    expected = { encryption: "keder ohulw",
+                 key: "02715",
+                 date: "040895" }
+
+    assert_equal expected, @enigma.encrypt("HELLO WoRlD", "02715", "040895")
+  end
+
+  def test_find_shift_helper_method
+    char_counter = 1
+    shifts = { a_shift: 3,
+               b_shift: 27,
+               c_shift: 73,
+               d_shift: 20 }
+
+    assert_equal 3, @enigma.find_shift(char_counter, shifts)
+  end
+
+  def test_encrypt_single_character_helper_method
+    character = "h"
+    shift = 3
+
+    assert_equal "k", @enigma.encrypt_character(character, shift)
+  end
+
+  def test_increment_counter
+    assert_equal 2, @enigma.increment_counter(1)
+    assert_equal 3, @enigma.increment_counter(2)
+    assert_equal 4, @enigma.increment_counter(3)
+    assert_equal 1, @enigma.increment_counter(4)
   end
 
 end

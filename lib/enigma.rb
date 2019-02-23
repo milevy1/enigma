@@ -1,7 +1,15 @@
 class Enigma
 
   def encrypt(message, key, date)
-
+    shifts = shift_converter(key_converter(key), date_converter(date))
+    encrypted_message = []
+    counter = 1
+    message.downcase.chars.each do |character|
+      shift = find_shift(counter, shifts)
+      encrypted_message << encrypt_character(character, shift)
+      counter = increment_counter(counter)
+    end
+    { encryption: encrypted_message.join, key: key, date: date }
   end
 
   def key_converter(key)
@@ -27,6 +35,40 @@ class Enigma
       b_shift: keys[:b_key] + offsets[:b_offset],
       c_shift: keys[:c_key] + offsets[:c_offset],
       d_shift: keys[:d_key] + offsets[:d_offset] }
+  end
+
+  def find_shift(char_counter, shifts)
+    case char_counter
+    when 1
+      return shifts[:a_shift]
+    when 2
+      return shifts[:b_shift]
+    when 3
+      return shifts[:c_shift]
+    when 4
+      return shifts[:d_shift]
+    end
+  end
+
+  def encrypt_character(character, shift)
+    alphabet = ("a".."z").to_a << " "
+    index = alphabet.index(character)
+
+    if index.nil?
+      return character
+    else
+      indexed_alphabet = alphabet.rotate(index)
+      shifted_alphabet = indexed_alphabet.rotate(shift)
+      return shifted_alphabet.first
+    end
+  end
+
+  def increment_counter(counter)
+    if counter == 4
+      counter = 1
+    else
+      counter += 1
+    end
   end
 
 end
