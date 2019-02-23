@@ -59,6 +59,14 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.encrypt("hello world", "02715", "040895")
   end
 
+  def test_encrypt_ignores_characters_not_in_alphabet
+    expected = { encryption: "keder ohulw!",
+                 key: "02715",
+                 date: "040895" }
+
+    assert_equal expected, @enigma.encrypt("hello world!", "02715", "040895")
+  end
+
   def test_find_shift_helper_method
     char_counter = 1
     shifts = { a_shift: 3,
@@ -80,7 +88,7 @@ class EnigmaTest < Minitest::Test
     assert_equal 2, @enigma.increment_counter(1)
     assert_equal 3, @enigma.increment_counter(2)
     assert_equal 4, @enigma.increment_counter(3)
-    assert_equal 1, @enigma.increment_counter(4)    
+    assert_equal 1, @enigma.increment_counter(4)
   end
 
 end
