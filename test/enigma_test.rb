@@ -73,7 +73,14 @@ class EnigmaTest < Minitest::Test
     character = "h"
     shift = 3
 
-    assert_equal "k", @enigma.encrypt_character(character, shift)    
+    assert_equal "k", @enigma.encrypt_character(character, shift)
+  end
+
+  def test_increment_counter
+    assert_equal 2, @enigma.increment_counter(1)
+    assert_equal 3, @enigma.increment_counter(2)
+    assert_equal 4, @enigma.increment_counter(3)
+    assert_equal 1, @enigma.increment_counter(4)    
   end
 
 end
