@@ -2,17 +2,12 @@ class Enigma
 
   def encrypt(message, key, date)
     shifts = shift_converter(key_converter(key), date_converter(date))
-    alphabet = ("a".."z").to_a << " "
     message_chars = message.downcase.chars
     encrypted_message = []
 
-    # Iterate over each char in the messsage
     char_counter = 1
     message_chars.each do |character|
-      # Check if it is a, b, c, or d shift
       shift = find_shift(char_counter, shifts)
-
-      # push the new char into the encrypted_message
       encrypted_message << encrypt_character(character, shift)
 
       # Increment char counter
