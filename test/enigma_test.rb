@@ -32,6 +32,25 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.date_converter(date)
   end
 
+  def test_shift_converter_converts_keys_and_offsets_to_shifts
+    keys = { a_key: 02,
+             b_key: 27,
+             c_key: 71,
+             d_key: 15 }
+
+    offsets = { a_offset: 1,
+                b_offset: 0,
+                c_offset: 2,
+                d_offset: 5 }
+
+    expected = { a_shift: 3,
+                 b_shift: 27,
+                 c_shift: 73,
+                 d_shift: 20 }
+
+    assert_equal expected, @enigma.shift_converter(keys, offsets)
+  end
+
   def test_it_can_encrypt_with_a_key_and_date
     skip
     expected = { encryption: "keder ohulw",
