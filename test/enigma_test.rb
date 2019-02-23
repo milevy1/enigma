@@ -112,4 +112,9 @@ class EnigmaTest < Minitest::Test
     assert_equal true, range.include?(key_as_integer)
   end
 
+  def test_todays_date_returns_date_in_correct_format
+    assert_equal String, @enigma.todays_date.class
+    assert_equal 6, @enigma.todays_date.length
+  end
+
 end
