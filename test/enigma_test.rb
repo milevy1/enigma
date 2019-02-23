@@ -133,11 +133,19 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_decrypt_a_message_with_a_key_and_date
+    skip
     expected = { decryption: "hello world",
                  key: "02715",
                  date: "040895" }
 
     assert_equal expected, @enigma.decrypt("keder ohulw", "02715", "040895")
+  end
+
+  def test_decrypt_single_character_helper_method
+    character = "k"
+    shift = 3
+
+    assert_equal "h", @enigma.decrypt_character(character, shift)
   end
 
 end
