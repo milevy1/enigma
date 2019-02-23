@@ -12,7 +12,14 @@ class Enigma
   end
 
   def date_converter(date)
-    date
+    date = date.to_i
+    date_squared = date * date
+    last_four = date_squared.to_s[-4..-1]
+    
+    { a_offset: last_four[0].to_i,
+      b_offset: last_four[1].to_i,
+      c_offset: last_four[2].to_i,
+      d_offset: last_four[3].to_i }
   end
 
 end
