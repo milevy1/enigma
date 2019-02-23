@@ -67,6 +67,14 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.encrypt("hello world!", "02715", "040895")
   end
 
+  def test_encrypt_treats_uppercase_letters_as_lower_case
+    expected = { encryption: "keder ohulw",
+                 key: "02715",
+                 date: "040895" }
+
+    assert_equal expected, @enigma.encrypt("HELLO WoRlD", "02715", "040895")
+  end
+
   def test_find_shift_helper_method
     char_counter = 1
     shifts = { a_shift: 3,
