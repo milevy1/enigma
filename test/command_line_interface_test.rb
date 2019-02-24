@@ -8,4 +8,8 @@ class CommandLineInterfaceTest < Minitest::Test
   include Encryption
   include CommandLineInterface
 
+  def setup
+    @enigma = Enigma.new
+  end
+
 end
