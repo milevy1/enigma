@@ -5,8 +5,7 @@ class Enigma
     encrypted_message = []
     counter = 1
     message.downcase.chars.each do |character|
-      shift = find_shift(counter, shifts)
-      encrypted_message << encrypt_character(character, shift)
+      encrypted_message << encrypt_character(character, find_shift(counter, shifts))
       counter = increment_counter(counter)
     end
     { encryption: encrypted_message.join, key: key, date: date }
@@ -17,8 +16,7 @@ class Enigma
     decrypted_message = []
     counter = 1
     message.downcase.chars.each do |character|
-      shift = find_shift(counter, shifts)
-      decrypted_message << decrypt_character(character, shift)
+      decrypted_message << decrypt_character(character, find_shift(counter, shifts))
       counter = increment_counter(counter)
     end
     { decryption: decrypted_message.join, key: key, date: date }
