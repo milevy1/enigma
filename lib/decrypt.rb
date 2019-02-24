@@ -6,7 +6,7 @@ key = ARGV[2]
 date = ARGV[3]
 
 encrypted_file = File.open(encrypted_file_name, "r")
-message = encrypted_file.read
+message = encrypted_file.read.chomp
 encrypted_file.close
 
 enigma = Enigma.new
