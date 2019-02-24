@@ -149,6 +149,15 @@ class EnigmaTest < Minitest::Test
     assert_equal "hello world", decryption[:decryption]
   end
 
+  def test_decrypt_a_message_with_non_alphabet_character
+    encryption = @enigma.encrypt("hello world!", "02715")
+    encrypted_message = encryption[:encryption]
+
+    decryption = @enigma.decrypt(encrypted_message, "02715")
+
+    assert_equal "hello world!", decryption[:decryption]
+  end
+
   def test_decrypt_single_character_helper_method
     character = "k"
     shift = 3
