@@ -48,16 +48,10 @@ class Enigma
   end
 
   def find_shift(char_counter, shifts)
-    case char_counter
-    when 1
-      return shifts[:a_shift]
-    when 2
-      return shifts[:b_shift]
-    when 3
-      return shifts[:c_shift]
-    when 4
-      return shifts[:d_shift]
-    end
+    return shifts[:a_shift] if char_counter == 1
+    return shifts[:b_shift] if char_counter == 2      
+    return shifts[:c_shift] if char_counter == 3      
+    return shifts[:d_shift] if char_counter == 4
   end
 
   def encrypt_character(character, shift)
