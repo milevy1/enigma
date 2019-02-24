@@ -1,3 +1,3 @@
-module CommandLine
-  
+class CommandLine
+
 end
