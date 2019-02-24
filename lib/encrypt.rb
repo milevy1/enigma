@@ -4,7 +4,7 @@ message_file_name = ARGV[0]
 encryption_file_name = ARGV[1]
 
 message_file = File.open(message_file_name, "r")
-message = message_file.read.chop
+message = message_file.read.chomp
 message_file.close
 
 enigma = Enigma.new
