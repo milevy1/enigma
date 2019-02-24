@@ -60,22 +60,20 @@ class Enigma
 
     return character if index_of_character.nil?
 
-    alphabet_starting_at_character = alphabet.rotate(index_of_character)
-    alphabet_shifted_to_encrypted_char = alphabet_starting_at_character.rotate(shift)
+    alphabet_starting_at_char = alphabet.rotate(index_of_character)
+    alphabet_shifted_to_encrypted_char = alphabet_starting_at_char.rotate(shift)
     alphabet_shifted_to_encrypted_char.first
   end
 
   def decrypt_character(character, shift)
     alphabet = ("a".."z").to_a << " "
-    index = alphabet.index(character)
+    index_of_character = alphabet.index(character)
 
-    if index.nil?
-      return character
-    else
-      indexed_alphabet = alphabet.rotate(index)
-      shifted_alphabet = indexed_alphabet.rotate(-shift)
-      return shifted_alphabet.first
-    end
+    return character if index_of_character.nil?
+
+    alphabet_starting_at_char = alphabet.rotate(index_of_character)
+    alphabet_shifted_to_decrypted_char = alphabet_starting_at_char.rotate(-shift)
+    alphabet_shifted_to_decrypted_char.first
   end
 
   def increment_counter(counter)
