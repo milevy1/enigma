@@ -56,7 +56,6 @@ module Encryption
   def encrypt_character(character, shift)
     alphabet = ("a".."z").to_a << " "
     index_of_character = alphabet.index(character)
-
     return character if index_of_character.nil?
 
     alphabet_starting_at_char = alphabet.rotate(index_of_character)
