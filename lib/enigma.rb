@@ -49,22 +49,20 @@ class Enigma
 
   def find_shift(char_counter, shifts)
     return shifts[:a_shift] if char_counter == 1
-    return shifts[:b_shift] if char_counter == 2      
-    return shifts[:c_shift] if char_counter == 3      
+    return shifts[:b_shift] if char_counter == 2
+    return shifts[:c_shift] if char_counter == 3
     return shifts[:d_shift] if char_counter == 4
   end
 
   def encrypt_character(character, shift)
     alphabet = ("a".."z").to_a << " "
-    index = alphabet.index(character)
+    index_of_character = alphabet.index(character)
 
-    if index.nil?
-      return character
-    else
-      indexed_alphabet = alphabet.rotate(index)
-      shifted_alphabet = indexed_alphabet.rotate(shift)
-      return shifted_alphabet.first
-    end
+    return character if index_of_character.nil?
+
+    alphabet_starting_at_character = alphabet.rotate(index_of_character)
+    alphabet_shifted_to_encrypted_char = alphabet_starting_at_character.rotate(shift)
+    alphabet_shifted_to_encrypted_char.first
   end
 
   def decrypt_character(character, shift)
