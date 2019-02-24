@@ -1,4 +1,3 @@
 echo "coverage" >> .gitignore
 Rakefile.rb
 coverage*
-encrypted.txt
