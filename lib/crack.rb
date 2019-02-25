@@ -38,17 +38,8 @@ module Crack
     ending_letter = key_values(message)[key_letter]
     encrypted_letter = ending_associations(message)[ending_letter]
 
-    if ending_letter == " "
-      ending_letter_ord = 123
-    else
-      ending_letter_ord = ending_letter.ord
-    end
-
-    if encrypted_letter == " "
-      encrypted_letter_ord = 123
-    else
-      encrypted_letter_ord = encrypted_letter.ord
-    end
+    ending_letter_ord = find_letter_ord_value(ending_letter)
+    encrypted_letter_ord = find_letter_ord_value(encrypted_letter)
 
     shift = encrypted_letter_ord - ending_letter_ord
 
@@ -63,6 +54,14 @@ module Crack
       shift += 27
     end
     potential_keys
+  end
+
+  def find_letter_ord_value(letter)
+    if letter == " "
+      123
+    else
+      letter.ord
+    end
   end
 
 end
