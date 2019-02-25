@@ -74,6 +74,10 @@ class EnigmaTest < Minitest::Test
     assert_equal 123, @enigma.find_letter_ord_value(" ")
   end
 
+  def test_find_minimum_shift
+    assert_equal 1, @enigma.find_minimum_shift("a", "b")
+  end
+
   def test_crack_shifts
     skip
     expected = { a_shift: 1,
