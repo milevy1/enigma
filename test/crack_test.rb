@@ -118,12 +118,4 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.crack("vjqtbeaweqihssi", "291018")
   end
 
-  def test_crack_with_no_date_should_use_todays_date
-    skip
-    decryption = @enigma.crack("vjqtbeaweqihssi")
-    expected = [:decryption, :date, :key]
-
-    assert_equal expected, decryption.keys
-  end
-
 end
