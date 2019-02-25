@@ -75,6 +75,13 @@ class EnigmaTest < Minitest::Test
     assert_equal 0, @enigma.find_minimum_shift("a", "a")
   end
 
+  def test_generate_potential_keys
+    shift = 1
+    offset = 1
+    
+    assert_equal [2, 29, 56, 83], @enigma.generate_potential_keys(shift, offset)
+  end
+
   def test_crack_shifts
     skip
     expected = { a_shift: 1,
