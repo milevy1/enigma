@@ -70,7 +70,7 @@ class EnigmaTest < Minitest::Test
 
   def test_find_letter_ord_value
     assert_equal 97,  @enigma.find_letter_ord_value("a")
-    assert_equal 122,  @enigma.find_letter_ord_value("z")    
+    assert_equal 122, @enigma.find_letter_ord_value("z")
     assert_equal 123, @enigma.find_letter_ord_value(" ")
   end
 
