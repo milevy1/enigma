@@ -60,7 +60,12 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.key_values("abcde")
   end
 
+  def test_crack_a_shift
+    assert_equal 1, @enigma.crack_a_shift("vjqtbeaweqihssi", "291018")    
+  end
+
   def test_crack_shifts
+    skip
     expected = { a_shift: 1,
                  b_shift: 2,
                  c_shift: 3,
