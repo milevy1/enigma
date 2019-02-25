@@ -38,9 +38,6 @@ module Crack
     ending_letter = key_values(message)[key_letter]
     encrypted_letter = ending_associations(message)[ending_letter]
 
-    ending_letter_ord = find_letter_ord_value(ending_letter)
-    encrypted_letter_ord = find_letter_ord_value(encrypted_letter)
-
     shift = find_minimum_shift(ending_letter, encrypted_letter)
 
     potential_keys = []
@@ -49,14 +46,6 @@ module Crack
       shift += 27
     end
     potential_keys
-  end
-
-  def find_letter_ord_value(letter)
-    if letter == " "
-      123
-    else
-      letter.ord
-    end
   end
 
   def find_minimum_shift(decrypted_letter, encrypted_letter)

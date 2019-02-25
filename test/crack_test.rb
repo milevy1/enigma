@@ -68,12 +68,6 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.find_potential_keys("vjqtbeaweqihssi", a_offset, :a_key)
   end
 
-  def test_find_letter_ord_value
-    assert_equal 97,  @enigma.find_letter_ord_value("a")
-    assert_equal 122, @enigma.find_letter_ord_value("z")
-    assert_equal 123, @enigma.find_letter_ord_value(" ")
-  end
-
   def test_find_minimum_shift
     assert_equal 1, @enigma.find_minimum_shift("a", "b")
     assert_equal 1, @enigma.find_minimum_shift(" ", "a")
