@@ -26,4 +26,11 @@ module Crack
       d_key: ending[3] }
   end
 
+  def crack_shifts(message, date)
+    { a_shift: crack_a_shift(message, date),
+      b_shift: crack_b_shift(message, date),
+      c_shift: crack_c_shift(message, date),
+      d_shift: crack_d_shift(message, date) }
+  end
+
 end
