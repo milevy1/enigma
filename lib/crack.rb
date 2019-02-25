@@ -41,12 +41,7 @@ module Crack
     ending_letter_ord = find_letter_ord_value(ending_letter)
     encrypted_letter_ord = find_letter_ord_value(encrypted_letter)
 
-    shift = encrypted_letter_ord - ending_letter_ord
-
-    # Check if looped alphabet
-    if shift < 0
-      shift = 27 - shift
-    end
+    shift = find_minimum_shift(ending_letter, encrypted_letter)
 
     potential_keys = []
     while shift < 100
