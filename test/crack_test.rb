@@ -13,9 +13,9 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_last_four_characters
-    expected = ["h", "s", "s", "i"]
-    
-    assert_equal expected, @enigma.last_four_characters("vjqtbeaweqihssi")
+    expected = ["b", "c", "d", "e"]
+
+    assert_equal expected, @enigma.last_four_characters("abcde")
   end
 
   def test_crack_with_a_date
