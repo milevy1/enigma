@@ -93,12 +93,12 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_crack_keys
-    expected = { a_key: 1,
-                 b_key: 2,
-                 c_key: 3,
+    expected = { a_key: 8,
+                 b_key: 83,
+                 c_key: 30,
                  d_key: 4 }
 
-    assert_equal expected, @enigma.crack_shifts("vjqtbeaweqihssi", "291018")
+    assert_equal expected, @enigma.crack_keys("vjqtbeaweqihssi", "291018")
   end
 
   def test_crack_with_a_date
