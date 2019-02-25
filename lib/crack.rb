@@ -65,12 +65,12 @@ module Crack
   end
 
   def find_minimum_shift(decrypted_letter, encrypted_letter)
-    shift = find_letter_ord_value(encrypted_letter) - find_letter_ord_value(decrypted_letter)
+    alphabet = ("a".."z").to_a << " "
+    index_of_decrypted = alphabet.index(decrypted_letter)
+    index_of_encrypted = alphabet.index(encrypted_letter)
 
-    if shift < 0
-      shift = 27 - shift
-    end
-
+    shift = index_of_encrypted - index_of_decrypted
+    shift = shift + 27 if shift < 0
     shift
   end
 
