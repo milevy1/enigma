@@ -117,4 +117,10 @@ class CrackHelpersTest < Minitest::Test
     assert_equal expected, @enigma.crack("vjqtbeaweqihssi", "291018")
   end
 
+  def test_crack_with_no_possible_key
+    expected = "There is no possible key sequence."
+
+    assert_equal expected, @enigma.crack("vjqtbeaweqihssi", "250219")
+  end
+
 end
