@@ -4,7 +4,7 @@ require './lib/enigma'
 require './lib/encryption'
 require './lib/crack_helpers'
 
-class EnigmaTest < Minitest::Test
+class CrackHelpersTest < Minitest::Test
   include Encryption
   include CrackHelpers
 
