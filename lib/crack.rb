@@ -58,4 +58,13 @@ module Crack
     shift
   end
 
+  def generate_potential_keys(shift, offset)
+    potential_keys = []
+    while shift < 100
+      potential_keys << shift - offset
+      shift += 27
+    end
+    potential_keys
+  end
+
 end
