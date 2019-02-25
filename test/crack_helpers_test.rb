@@ -2,11 +2,11 @@ require './test/test_helper'
 require 'date'
 require './lib/enigma'
 require './lib/encryption'
-require './lib/crack'
+require './lib/crack_helpers'
 
 class EnigmaTest < Minitest::Test
   include Encryption
-  include Crack
+  include CrackHelpers
 
   def setup
     @enigma = Enigma.new

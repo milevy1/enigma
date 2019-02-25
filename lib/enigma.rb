@@ -1,10 +1,10 @@
 require 'date'
 require './lib/encryption'
 require './lib/file_helpers'
-require './lib/crack'
+require './lib/crack_helpers'
 
 class Enigma
   include Encryption
   include FileHelpers
-  include Crack
+  include CrackHelpers
 end
