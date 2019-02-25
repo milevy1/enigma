@@ -107,5 +107,14 @@ module Crack
     "There is no possible key sequence."
   end
 
+  def convert_keys_to_key(keys)
+    a_key = ("0" + keys[:a_key].to_s)[-2..-1]
+    b_key_second = keys[:b_key].to_s[-1]
+    c_key_second = keys[:c_key].to_s[-1]
+    d_key_second = keys[:d_key].to_s[-1]
+
+    a_key + b_key_second + c_key_second + d_key_second
+  end
+
 
 end
