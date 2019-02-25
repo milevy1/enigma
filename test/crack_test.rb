@@ -42,7 +42,17 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.last_four_rotated("aaaabcde")
   end
 
+  def test_ending_associations
+    expected = { " " => "b",
+                 "e" => "c",
+                 "n" => "d",
+                 "d" => "e" }
+
+    assert_equal expected, @enigma.ending_associations("abcde")
+  end
+
   def test_crack_shifts
+    skip
     expected = { a_shift: 1,
                  b_shift: 2,
                  c_shift: 3,
