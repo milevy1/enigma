@@ -64,4 +64,14 @@ module Crack
     end
   end
 
+  def find_minimum_shift(decrypted_letter, encrypted_letter)
+    shift = find_letter_ord_value(encrypted_letter) - find_letter_ord_value(decrypted_letter)
+
+    if shift < 0
+      shift = 27 - shift
+    end
+
+    shift
+  end
+
 end
