@@ -26,14 +26,6 @@ module CrackHelpers
       d_key: ending[3] }
   end
 
-  def crack_shifts(message, date)
-    offsets = date_converter(date)
-    { a_shift: find_potential_keys(message, offsets[:a_offset], :a_key),
-      b_shift: find_potential_keys(message, offsets[:b_offset], :b_key),
-      c_shift: find_potential_keys(message, offsets[:c_offset], :c_key),
-      d_shift: find_potential_keys(message, offsets[:d_offset], :d_key) }
-  end
-
   def find_all_potential_keys(message, date)
     offsets = date_converter(date)
     { a_keys: find_potential_keys(message, offsets[:a_offset], :a_key),
