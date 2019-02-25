@@ -76,6 +76,8 @@ class EnigmaTest < Minitest::Test
 
   def test_find_minimum_shift
     assert_equal 1, @enigma.find_minimum_shift("a", "b")
+    assert_equal 1, @enigma.find_minimum_shift(" ", "a")
+    assert_equal 2, @enigma.find_minimum_shift("a", "z")
   end
 
   def test_crack_shifts
