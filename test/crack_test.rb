@@ -64,7 +64,7 @@ class EnigmaTest < Minitest::Test
     offsets = date_converter("291018")
     expected = { :a_keys=>[8, 35, 62, 89],
                  :b_keys=>[2, 29, 56, 83],
-                 :c_keys=>[3, 30, 57, 84], 
+                 :c_keys=>[3, 30, 57, 84],
                  :d_keys=>[4, 31, 58, 85] }
 
     assert_equal expected, @enigma.find_all_potential_keys("vjqtbeaweqihssi", "291018")
@@ -93,7 +93,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_crack_shifts
-    skip
     expected = { a_shift: 1,
                  b_shift: 2,
                  c_shift: 3,
