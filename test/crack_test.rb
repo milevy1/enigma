@@ -12,6 +12,12 @@ class EnigmaTest < Minitest::Test
     @enigma = Enigma.new
   end
 
+  def test_last_four_characters
+    expected = ["h", "s", "s", "i"]
+    
+    assert_equal expected, @enigma.last_four_characters("vjqtbeaweqihssi")
+  end
+
   def test_crack_with_a_date
     skip
     expected = { decryption: "hello world end",
