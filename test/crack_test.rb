@@ -60,8 +60,12 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.key_values("abcde")
   end
 
-  def test_crack_a_shift
-    assert_equal 1, @enigma.crack_a_shift("vjqtbeaweqihssi", "291018")    
+  def test_find_potential_keys
+    offsets = date_converter("291018")
+    a_offset = offsets[:a_offset]
+    expected =  [8, 35, 62, 89]
+
+    assert_equal expected, @enigma.find_potential_keys("vjqtbeaweqihssi", a_offset, :a_key)
   end
 
   def test_crack_shifts
