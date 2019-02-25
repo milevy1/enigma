@@ -27,10 +27,42 @@ module Crack
   end
 
   def crack_shifts(message, date)
-    { a_shift: crack_a_shift(message, date),
-      b_shift: crack_b_shift(message, date),
-      c_shift: crack_c_shift(message, date),
-      d_shift: crack_d_shift(message, date) }
+    offsets = date_converter(date)
+    { a_shift: find_potential_keys(message, offsets[:a_offset], :a_key),
+      b_shift: find_potential_keys(message, offsets[:b_offset], :b_key),
+      c_shift: find_potential_keys(message, offsets[:c_offset], :c_key),
+      d_shift: find_potential_keys(message, offsets[:d_offset], :d_key) }
+  end
+
+  def find_potential_keys(message, offset, key_letter)
+    ending_letter = key_values(message)[key_letter]
+    encrypted_letter = ending_associations(message)[ending_letter]
+
+    if ending_letter == " "
+      ending_letter_ord = 123
+    else
+      ending_letter_ord = ending_letter.ord
+    end
+
+    if encrypted_letter == " "
+      encrypted_letter_ord = 123
+    else
+      encrypted_letter_ord = encrypted_letter.ord
+    end
+
+    shift = encrypted_letter_ord - ending_letter_ord
+
+    # Check if looped alphabet
+    if shift < 0
+      shift = 27 - shift
+    end
+
+    potential_keys = []
+    while shift < 100
+      potential_keys << shift - offset
+      shift += 27
+    end
+    potential_keys
   end
 
 end
