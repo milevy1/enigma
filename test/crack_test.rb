@@ -18,6 +18,12 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.last_four_characters("abcde")
   end
 
+  def test_rotate_last_four_to_a_shifted_character
+    expected = ["e", "b", "c", "d"]
+
+    assert_equal expected, @enigma.last_four_rotated("abcde")
+  end
+
   def test_crack_with_a_date
     skip
     expected = { decryption: "hello world end",
