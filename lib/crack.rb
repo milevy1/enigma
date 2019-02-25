@@ -1,0 +1,3 @@
+module Crack
+  
+end
