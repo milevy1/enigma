@@ -40,12 +40,7 @@ module Crack
 
     shift = find_minimum_shift(ending_letter, encrypted_letter)
 
-    potential_keys = []
-    while shift < 100
-      potential_keys << shift - offset
-      shift += 27
-    end
-    potential_keys
+    generate_potential_keys(shift, offset)
   end
 
   def find_minimum_shift(decrypted_letter, encrypted_letter)
