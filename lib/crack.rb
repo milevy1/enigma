@@ -37,7 +37,6 @@ module Crack
   def find_potential_keys(message, offset, key_letter)
     ending_letter = key_values(message)[key_letter]
     encrypted_letter = ending_associations(message)[ending_letter]
-
     shift = find_minimum_shift(ending_letter, encrypted_letter)
 
     generate_potential_keys(shift, offset)
