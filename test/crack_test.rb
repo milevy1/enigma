@@ -51,14 +51,13 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.ending_associations("abcde")
   end
 
-  def test_crack_shifts
-    skip
-    expected = { a_shift: 1,
-                 b_shift: 2,
-                 c_shift: 3,
-                 d_shift: 4 }
+  def test_ending_key_values
+    expected = { a_key: "d",
+                 b_key: " ",
+                 c_key: "e",
+                 d_key: "n" }
 
-    assert_equal expected, @enigma.crack_shifts("abcde", "240219")
+    assert_equal expected, @enigma.key_values("abcde")
   end
 
   def test_crack_with_a_date
