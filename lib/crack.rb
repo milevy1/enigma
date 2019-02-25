@@ -118,8 +118,10 @@ module Crack
 
   def crack(message, date = todays_date)
     all_keys = crack_keys(message, date)
+    if all_keys == "There is no possible key sequence."
+      return all_keys
+    end
     key = convert_keys_to_key(all_keys)
-
     decrypt(message, key, date)
   end
 
