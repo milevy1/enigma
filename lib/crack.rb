@@ -116,5 +116,11 @@ module Crack
     a_key + b_key_second + c_key_second + d_key_second
   end
 
+  def crack(message, date = todays_date)
+    all_keys = crack_keys(message, date)
+    key = convert_keys_to_key(all_keys)
+
+    decrypt(message, key, date)
+  end
 
 end
