@@ -101,6 +101,15 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.crack_keys("vjqtbeaweqihssi", "291018")
   end
 
+  def test_convert_keys_to_key
+    keys = { a_key: 8,
+             b_key: 83,
+             c_key: 30,
+             d_key: 4 }
+
+    assert_equal "08304", @enigma.convert_keys_to_key(keys)
+  end
+
   def test_crack_with_a_date
     expected = { decryption: "hello world end",
                  date: "291018",
