@@ -2,11 +2,11 @@ require './test/test_helper'
 require 'date'
 require './lib/enigma'
 require './lib/encryption'
-require './lib/crack'
+require './lib/crack_helpers'
 
-class EnigmaTest < Minitest::Test
+class CrackHelpersTest < Minitest::Test
   include Encryption
-  include Crack
+  include CrackHelpers
 
   def setup
     @enigma = Enigma.new
@@ -61,7 +61,6 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_find_all_potential_keys
-    offsets = date_converter("291018")
     expected = { :a_keys=>[8, 35, 62, 89],
                  :b_keys=>[2, 29, 56, 83],
                  :c_keys=>[3, 30, 57, 84],
