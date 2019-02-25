@@ -92,11 +92,11 @@ class EnigmaTest < Minitest::Test
     assert_equal [1, 28, 55, 82], @enigma.generate_potential_keys(shift, offset)
   end
 
-  def test_crack_shifts
-    expected = { a_shift: 1,
-                 b_shift: 2,
-                 c_shift: 3,
-                 d_shift: 4 }
+  def test_crack_keys
+    expected = { a_key: 1,
+                 b_key: 2,
+                 c_key: 3,
+                 d_key: 4 }
 
     assert_equal expected, @enigma.crack_shifts("vjqtbeaweqihssi", "291018")
   end
