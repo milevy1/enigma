@@ -18,10 +18,28 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.last_four_characters("abcde")
   end
 
-  def test_rotate_last_four_to_a_shifted_character
+  def test_rotate_last_four_to_a_shifted_character_sequence_1
     expected = ["e", "b", "c", "d"]
 
     assert_equal expected, @enigma.last_four_rotated("abcde")
+  end
+
+  def test_rotate_last_four_to_a_shifted_character_sequence_2
+    expected = ["d", "e", "b", "c"]
+
+    assert_equal expected, @enigma.last_four_rotated("aabcde")
+  end
+
+  def test_rotate_last_four_to_a_shifted_character_sequence_3
+    expected = ["c", "d", "e", "b"]
+
+    assert_equal expected, @enigma.last_four_rotated("aaabcde")
+  end
+
+  def test_rotate_last_four_to_a_shifted_character_sequence_4
+    expected = ["b", "c", "d", "e"]
+
+    assert_equal expected, @enigma.last_four_rotated("aaaabcde")
   end
 
   def test_crack_with_a_date
