@@ -60,6 +60,13 @@ class EnigmaTest < Minitest::Test
     assert_equal expected, @enigma.key_values("abcde")
   end
 
+  def test_find_all_potential_keys
+    offsets = date_converter("291018")
+    expected = {}
+
+    assert_equal expected, @enigma.find_all_potential_keys("vjqtbeaweqihssi", "291018")    
+  end
+
   def test_find_potential_keys
     offsets = date_converter("291018")
     a_offset = offsets[:a_offset]
