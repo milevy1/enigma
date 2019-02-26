@@ -1,8 +1,6 @@
 require './test/test_helper'
 require 'date'
 require './lib/enigma'
-require './lib/encryption'
-require './lib/crack_helpers'
 
 class CrackHelpersTest < Minitest::Test
 
