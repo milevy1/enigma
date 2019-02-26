@@ -21,7 +21,7 @@ $ ruby ./lib/crack.rb encrypted.txt cracked.txt 240818
 Created 'cracked.txt' with the cracked key 82648 and date 240818
 ```
 
-### Self-assessment based on [evaluation rubric] (http://backend.turing.io/module1/projects/enigma/rubric)
+Self-assessment based on [evaluation rubric] (http://backend.turing.io/module1/projects/enigma/rubric)
 - Functionality: 4
 - Object Oriented Programming: 3
 - Test Driven Development: 4
