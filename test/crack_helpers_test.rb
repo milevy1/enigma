@@ -5,8 +5,6 @@ require './lib/encryption'
 require './lib/crack_helpers'
 
 class CrackHelpersTest < Minitest::Test
-  include Encryption
-  include CrackHelpers
 
   def setup
     @enigma = Enigma.new
@@ -22,7 +20,7 @@ class CrackHelpersTest < Minitest::Test
   end
 
   def test_find_potential_keys
-    offsets = date_converter("291018")
+    offsets = @enigma.date_converter("291018")
     a_offset = offsets[:a_offset]
     expected =  [8, 35, 62, 89]
 
