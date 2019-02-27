@@ -1,3 +1,2 @@
 echo "coverage" >> .gitignore
-Rakefile.rb
 coverage*
