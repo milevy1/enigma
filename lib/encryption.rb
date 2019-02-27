@@ -1,25 +1,5 @@
 module Encryption
 
-  def encrypt(message, key = random_key, date = todays_date)
-    shifts = shift_converter(key_converter(key), date_converter(date))
-    encrypted_message = []
-    counter = 1
-    message.downcase.chars.each { |character|
-      encrypted_message << encrypt_character(character, find_shift(counter, shifts))
-      counter = increment_counter(counter) }
-    { encryption: encrypted_message.join, key: key, date: date }
-  end
-
-  def decrypt(message, key, date = todays_date)
-    shifts = shift_converter(key_converter(key), date_converter(date))
-    decrypted_message = []
-    counter = 1
-    message.downcase.chars.each { |character|
-      decrypted_message << decrypt_character(character, find_shift(counter, shifts))
-      counter = increment_counter(counter) }
-    { decryption: decrypted_message.join, key: key, date: date }
-  end
-
   def key_converter(key)
     { a_key: key[0..1].to_i,
       b_key: key[1..2].to_i,
