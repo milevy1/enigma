@@ -29,5 +29,14 @@ class Enigma
       counter = increment_counter(counter) }
     { decryption: decrypted_message.join, key: key, date: date }
   end
-  
+
+  def crack(message, date = todays_date)
+    all_keys = crack_keys(message, date)
+    if all_keys == "There is no possible key sequence."
+      return all_keys
+    end
+    key = convert_keys_to_key(all_keys)
+    decrypt(message, key, date)
+  end
+
 end
